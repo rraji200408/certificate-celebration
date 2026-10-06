@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Congratulations!</title>
 
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f5f8ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 45px;
+            color: #1d3b70;
+        }
+
+        p {
+            font-size: 22px;
+        }
+
+        .cracker {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: burst 1.5s ease-out forwards;
+        }
+
+        @keyframes burst {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--x), var(--y)) scale(0.3);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div>
+    <h1>🎉 CONGRATULATIONS! 🎉</h1>
+    <p>You have won the Solve the Grid Game!</p>
+    <p>🏆 Your certificate is ready!</p>
+</div>
+
+<script>
+
+    function createCrackers() {
+
+        for (let i = 0; i < 100; i++) {
+
+            let particle = document.createElement("div");
+
+            particle.className = "cracker";
+
+            particle.style.left = "50%";
+            particle.style.top = "50%";
+
+            particle.style.setProperty(
+                "--x",
+                (Math.random() * 700 - 350) + "px"
+            );
+
+            particle.style.setProperty(
+                "--y",
+                (Math.random() * 600 - 300) + "px"
+            );
+
+            document.body.appendChild(particle);
+        }
+    }
+
+    createCrackers();
+
+    setTimeout(function() {
+
+        window.location.href =
+        "https://sites.google.com/view/poptheballon-crackthegrid/home";
+
+    }, 2000);
+
+</script>
+
+</body>
+</html>
